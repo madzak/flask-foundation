@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="css/app.css">
     {%- endblock %}
 
-    {%- if config['FOUNDATION_USE_CDNS'] %}
+    {%- if config['FOUNDATION_USE_CDN'] %}
       <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.{% if config['FOUNDATION_USE_MINIFIED'] %}min.{% endif %}js"></script>
     {%- else %}
       <script src="js/modernizr.foundation.js"></script>
@@ -52,7 +52,7 @@
     {%- endblock %}
 
     {%- block foundation_js_bottom %}
-    {%- if config['FOUNDATION_USE_CDNS'] %}
+    {%- if config['FOUNDATION_USE_CDN'] %}
       <script src="//ajax.googleapis.com/ajax/libs/jquery/latest/jquery.{% if config['FOUNDATION_USE_MINIFIED'] %}min.{% endif %}js"></script>
     {%- else %}
       <script src="js/jquery.js"></script>

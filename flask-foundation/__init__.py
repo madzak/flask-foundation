@@ -19,7 +19,8 @@ class Foundation(object):
 
     def init_app(self, app):
         app.config.setdefault('FOUNDATION_USE_MINIFIED', True)
-        app.config.setdefault('FOUNDATION_USE_CDN', False)
+        app.config.setdefault('FOUNDATION_USE_CDN', True)
+        app.config.setdefault('FOUNDATION_HTML5_SHIM', True)
 
         self.app = app
         self.blueprint = Blueprint(
@@ -30,8 +31,6 @@ class Foundation(object):
             static_url_path=self.app.static_url_path + '/foundation')
 
         app.register_blueprint(self.blueprint)
-
+        
         app.jinja_env.filters['foundation_is_hidden_field'] =\
-            is_hidden_field_filter
-        app.jinja_env.filters['foundation_find_resource'] =\
-            foundation_find_resource
+                    is_hidden_field_filter
