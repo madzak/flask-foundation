@@ -1,0 +1,43 @@
+{%- macro horizontal_field(field) %}
+<div{% if field.errors %} class="error"{% endif %}>
+  {{ field.label() }}
+  {{field(**kwargs)|safe}}
+  {%- if field.errors %}
+  {%- for error in field.errors %}
+  <small>{{error}}</small>
+  {%- endfor %}
+  {%- elif field.description -%}
+  <small>{{field.description|safe}}</small>
+  {%- endif %}
+</div>
+{% endmacro %}
+
+{% macro form_errors(form, hiddens=True) %}
+{%- if form.errors %}
+{%- for fieldname, errors in form.errors.iteritems() %}
+{%- if (form[fieldname]|foundation_is_hidden_field and hiddens) or
+       (form[fieldname]|foundation_is_hidden_field and hiddens != 'only') %}
+{%- for error in errors %}
+<small class="error">{{error}}</small>
+{%- endfor %}
+{%- endif %}
+{%- endfor %}
+{%- endif %}
+{%- endmacro %}
+
+{% macro quick_form(form, action=".", method="post", class="form form-horizontal", buttons = [('submit', 'primary', 'Submit')]) %}
+<form action="{{action}}" method="post" class="{{class}}">
+  {{ form.hidden_tag() }}
+  {{ form_errors(form, 'only') }}
+  {%- for field in form %}
+  {% if not field|foundation_is_hidden_field %}
+  {{ horizontal_field(field) }}
+  {%- endif %}
+  {%- endfor %}
+  <div class="form-actions">
+  {% for name, type, text in buttons %}
+    <button name="{{name}}" type="submit" class="{{type}} button">{{text}}</button>
+  {%- endfor %}
+  </div>
+</form>
+{%- endmacro %}
