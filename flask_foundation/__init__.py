@@ -30,7 +30,7 @@ class Foundation(object):
             static_folder='static',
             static_url_path=self.app.static_url_path + '/foundation')
 
-        app.register_blueprint(self.blueprint)
+        app.register_blueprint(self.blueprint, static_folder='static')
         
         app.jinja_env.filters['foundation_is_hidden_field'] =\
                     is_hidden_field_filter
