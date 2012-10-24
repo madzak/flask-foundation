@@ -12,8 +12,6 @@ Foundation(app)
 app.config['FOUNDATION_USE_MINIFIED'] = False
 app.config['FOUNDATION_USE_CDN'] = False
 app.config['SECRET_KEY'] = 'devkey'
-app.config['RECAPTCHA_PUBLIC_KEY'] = '6Lfol9cSAAAAADAkodaYl9wvQCwBMr3qGR_PPHcw'
-
 
 class ContactForm(Form):
     name_field = TextField('Your Name')
@@ -34,7 +32,6 @@ def contact():
     if form.validate_on_submit():
         return "PASSED"
     return render_template('contact.html', form=form)
-
 
 if '__main__' == __name__:
     app.run(debug=True)

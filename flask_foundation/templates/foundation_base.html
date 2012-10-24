@@ -7,60 +7,63 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 {% endblock %}
-{%- block html %}
+{% block html %}
   <head>
-    {%- block head %}
+    {% block head %}
     <meta charset="utf-8" />
     <title>{% block title %}{{title}}{% endblock %}</title>
-    {%- block meta %}
+    {% block meta %}
     <meta name="viewport" content="width=device-width" />
-    {%- endblock %}
+    {% endblock %}
   
-    {%- block style %}
-    {%- if config['FOUNDATION_USE_MINIFIED'] %}
+    {% block foundation_styles %}
+    {% if config['FOUNDATION_USE_MINIFIED'] %}
       <link rel="stylesheet" href="{{ url_for('foundation.static', filename='css/foundation.min.css') }}">
-    {%- else %}
+    {% else %}
       <link rel="stylesheet" href="{{ url_for('foundation.static', filename='css/foundation.css') }}">
-    {%- endif %}
+    {% endif %}
 
     <link rel="stylesheet" href="{{ url_for('foundation.static', filename='css/app.css') }}">
-    {%- endblock %}
+    {% endblock %}
+    
+    {% block styles %}
+    {% endblock %}
 
-    {%- if config['FOUNDATION_USE_CDN'] %}
+    {% if config['FOUNDATION_USE_CDN'] %}
       <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-    {%- else %}
+    {% else %}
       <script src="{{ url_for('foundation.static', filename='js/modernizr.foundation.js') }}"></script>
-    {%- endif %}
+    {% endif %}
 
-    {%- if config['FOUNDATION_HTML5_SHIM'] %}
-      {%- block foundation_html5_shim %}
+    {% if config['FOUNDATION_HTML5_SHIM'] %}
+      {% block foundation_html5_shim %}
       <!-- IE Fix for HTML5 Tags -->
       <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
-      {%- endblock %}
-    {%- endif %}
+      {% endblock %}
+    {% endif %}
 
-    {%- block favicons %}
-    {%- endblock %}
+    {% block favicons %}
+    {% endblock %}
 
-    {%- endblock %}
+    {% endblock %}
   </head>
   <body>
-  {%- block body %}
-    {%- block body_content %}
-    {%- endblock %}
+  {% block body %}
+    {% block body_content %}
+    {% endblock %}
 
-    {%- block foundation_js_bottom %}
-    {%- if config['FOUNDATION_USE_CDN'] %}
+    {% block foundation_js_bottom %}
+    {% if config['FOUNDATION_USE_CDN'] %}
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.{% if config['FOUNDATION_USE_MINIFIED'] %}min.{% endif %}js"></script>
-    {%- else %}
+    {% else %}
       <script src="{{ url_for('foundation.static', filename='js/jquery.js') }}"></script>
-    {%- endif %}
+    {% endif %}
 
-    {%- if config['FOUNDATION_USE_MINIFIED'] %}
+    {% if config['FOUNDATION_USE_MINIFIED'] %}
       <script src="{{ url_for('foundation.static', filename='js/foundation.min.js') }}"></script>
-    {%- else %}
+    {% else %}
       <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.mediaQueryToggle.js') }}"></script>
       <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.forms.js') }}"></script>
       <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.reveal.js') }}"></script>
@@ -73,11 +76,14 @@
       <script src="{{ url_for('foundation.static', filename='js/jquery.placeholder.js') }}"></script>
       <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.alerts.js') }}"></script>
       <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.topbar.js') }}"></script>
-    {%- endif %}
+    {% endif %}
 
     <script src="{{ url_for('foundation.static', filename='js/app.js') }}"></script>
-    {%- endblock %}
-  {%- endblock %}
+    {% endblock %}
+    
+    {% block scripts %}
+    {% endblock %}
+  {% endblock %}
   </body>
-{%- endblock %}
+{% endblock %}
 </html>
