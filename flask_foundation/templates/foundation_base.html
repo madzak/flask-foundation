@@ -11,9 +11,10 @@
   <head>
     {% block head %}
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{% block title %}{{title}}{% endblock %}</title>
     {% block meta %}
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" /><meta charset="utf-8">
     {% endblock %}
   
     {% block foundation_styles %}
@@ -43,9 +44,6 @@
       <![endif]-->
       {% endblock %}
     {% endif %}
-
-    {% block favicons %}
-    {% endblock %}
 
     {% endblock %}
   </head>
