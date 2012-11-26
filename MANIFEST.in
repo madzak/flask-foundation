@@ -1,0 +1,4 @@
+include *.txt
+include *.md
+recursive-include flask_foundation/templates *
+recursive-include flask_foundation/static *
