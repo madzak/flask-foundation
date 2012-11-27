@@ -1,29 +1,18 @@
-/* Artfully masterminded by ZURB  */
-
-/* -------------------------------------------------- 
-   Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
-
-
 /* -----------------------------------------
-   Shared Styles
+   Orbit Image Overrides
 ----------------------------------------- */
+/* Timer ---------------------- */
+div.orbit-wrapper span.rotator { background-image: url('../img/foundation/orbit/rotator-black.png'); }
+div.orbit-wrapper span.mask.move { background-image: url('../img/foundation/orbit/timer-black.png'); }
+div.orbit-wrapper span.pause { background-image: url('../img/foundation/orbit/pause-black.png'); }
+div.orbit-wrapper span.pause.active { background-image: url('../img/foundation/orbit/pause-black.png'); }
 
+/* Directional Nav ---------------------- */
+div.orbit-wrapper div.slider-nav span.right { background-image: url('../img/foundation/orbit/right-arrow.png'); }
+div.orbit-wrapper div.slider-nav span.left { background-image: url('../img/foundation/orbit/left-arrow.png'); }
 
+.lt-ie9 div.orbit-wrapper div.slider-nav span.right { background-image: url('../img/foundation/orbit/right-arrow-small.png'); }
+.lt-ie9 div.orbit-wrapper div.slider-nav span.left { background-image: url('../img/foundation/orbit/left-arrow-small.png'); }
 
-/* -----------------------------------------
-   Page Name 1
------------------------------------------ */
-
-
-
-
-/* -----------------------------------------
-   Page Name 2
------------------------------------------ */
-
-
+/* Bullet Nav ---------------------- */
+ul.orbit-bullets li { background-image: url('../img/foundation/orbit/bullets.jpg'); }
