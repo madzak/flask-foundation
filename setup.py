@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name='Flask-Foundation',
-    version='1.4',
+    version='1.5',
     url='http://github.com/brainfire/flask-foundation',
     license='BSD',
     author='Zakaria Zajac',
