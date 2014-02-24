@@ -3,8 +3,9 @@
 
 from flask import Flask, render_template
 from flask.ext.foundation import Foundation
-from flask.ext.wtf import Form, TextField, HiddenField, ValidationError,\
-                          Required, TextAreaField
+from flask.ext.wtf import Form
+from wtforms import TextField, HiddenField, TextAreaField
+from wtforms.validators import ValidationError, Required
 
 app = Flask(__name__)
 Foundation(app)

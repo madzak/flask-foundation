@@ -14,10 +14,10 @@
 
 {% macro form_errors(form, hiddens=True) %}
 {%- if form.errors %}
-{%- for fieldname, errors in form.errors.iteritems() %}
+{%- for fieldname in form.errors %}
 {%- if (form[fieldname]|foundation_is_hidden_field and hiddens) or
        (form[fieldname]|foundation_is_hidden_field and hiddens != 'only') %}
-{%- for error in errors %}
+{%- for error in form.errors[fieldname] %}
 <small class="error">{{error}}</small>
 {%- endfor %}
 {%- endif %}
@@ -25,8 +25,8 @@
 {%- endif %}
 {%- endmacro %}
 
-{% macro quick_form(form, action=".", method="post", class="form form-horizontal", buttons = [('submit', 'primary', 'Submit')]) %}
-<form action="{{action}}" method="post" class="{{class}}">
+{% macro quick_form(form, action="", method="post", class="form form-horizontal", buttons = [('submit', 'primary', 'Submit')]) %}
+<form action="{{action}}" method="{{method}}" class="{{class}}">
   {{ form.hidden_tag() }}
   {{ form_errors(form, 'only') }}
   {%- for field in form %}
