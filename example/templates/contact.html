@@ -4,8 +4,8 @@
 {% block body_content %}
 <!-- Top Bar -->
 
-  <nav class="top-bar">
-    <ul>
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
       <!-- Title Area -->
       <li class="name">
         <h1>
@@ -14,10 +14,10 @@
           </a>
         </h1>
       </li>
-      <li class="toggle-nav"><a href="#"></a></li>
+      <li class="toggle-topbar menu-icon"><a href="#"></a></li>
     </ul>
 
-    <section>
+    <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
         <li class="divider"></li>
@@ -72,18 +72,18 @@
   <div class="row">
 
     <!-- Contact Details -->
-    <div class="nine columns">
+    <div class="large-9 columns">
 
       <h3>Get in Touch!</h3>
       <p>We'd love to hear from you. You can either reach out to us as a whole and one of our awesome team members will get back to you, or if you have a specific question reach out to one of our staff. We love getting email all day <em>all day</em>.</p>
 
-      <dl class="contained tabs">
+      <dl class="tabs" data-tab>
         <dd class="active"><a href="#contactForm">Contact Our Company</a></dd>
         <dd><a href="#contactPeople">Specific Person</a></dd>
       </dl>
 
-      <ul class="tabs-content contained">
-        <li id="contactFormTab" class="active">
+      <ul class="tabs-content">
+        <li id="contactForm" class="content active">
           <form method="post">
             {{ form.hidden_tag() }}
             {{ wtf.form_errors(form, False) }}
@@ -107,8 +107,8 @@
           {{ wtf.quick_form(form) }}
         </li>
 
-        <li id="contactPeopleTab">
-          <ul class="block-grid five-up">
+        <li id="contactPeople" class="content">
+          <ul class="large-block-grid-5">
             <li><a href="mailto:mal@serenity.bc.reb"><img src="http://placehold.it/200x200&text=[person]" /><br />Mal Reynolds</a></li>
             <li><a href="mailto:zoe@serenity.bc.reb"><img src="http://placehold.it/200x200&text=[person]" /><br />Zoe Washburne</a></li>
             <li><a href="mailto:jayne@serenity.bc.reb"><img src="http://placehold.it/200x200&text=[person]" /><br />Jayne Cobb</a></li>
@@ -129,7 +129,7 @@
 
     <!-- Sidebar -->
 
-    <div class="three columns">
+    <div class="large-3 columns">
 
       <h5>Map</h5>
 
@@ -155,14 +155,14 @@
   <!-- Footer -->
 
   <footer class="row">
-    <div class="twelve columns">
+    <div class="large-12 columns">
       <hr />
       <div class="row">
-        <div class="six columns">
+        <div class="large-6 columns">
           <p>&copy; Copyright no one at all. Go to town.</p>
         </div>
-        <div class="six columns">
-          <ul class="link-list right">
+        <div class="large-6 columns">
+          <ul class="inline-list right">
             <li><a href="#">Link 1</a></li>
             <li><a href="#">Link 2</a></li>
             <li><a href="#">Link 3</a></li>
@@ -179,7 +179,7 @@
 
   <!-- Map Modal -->
 
-  <div class="reveal-modal" id="mapModal">
+  <div class="reveal-modal" id="mapModal" data-reveal>
     <h4>Where We Are</h4>
     <p><img src="http://placehold.it/800x600" /></p>
 

@@ -18,6 +18,7 @@
     {% endblock %}
   
     {% block foundation_styles %}
+      <link rel="stylesheet" href="{{ url_for('foundation.static', filename='css/normalize.css') }}">
     {% if config['FOUNDATION_USE_MINIFIED'] %}
       <link rel="stylesheet" href="{{ url_for('foundation.static', filename='css/foundation.min.css') }}">
     {% else %}
@@ -31,9 +32,9 @@
     {% endblock %}
 
     {% if config['FOUNDATION_USE_CDN'] %}
-      <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
     {% else %}
-      <script src="{{ url_for('foundation.static', filename='js/modernizr.foundation.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/vendor/modernizr.js') }}"></script>
     {% endif %}
 
     {% if config['FOUNDATION_HTML5_SHIM'] %}
@@ -54,26 +55,36 @@
 
     {% block foundation_js_bottom %}
     {% if config['FOUNDATION_USE_CDN'] %}
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.{% if config['FOUNDATION_USE_MINIFIED'] %}min.{% endif %}js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/0.6.11/fastclick.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.{% if config['FOUNDATION_USE_MINIFIED'] %}min.{% endif %}js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.7/jquery.placeholder.min.js"></script>
     {% else %}
-      <script src="{{ url_for('foundation.static', filename='js/jquery.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/vendor/fastclick.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/vendor/jquery.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/vendor/jquery.cookie.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/vendor/placeholder.js') }}"></script>
     {% endif %}
 
     {% if config['FOUNDATION_USE_MINIFIED'] %}
       <script src="{{ url_for('foundation.static', filename='js/foundation.min.js') }}"></script>
     {% else %}
-      <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.mediaQueryToggle.js') }}"></script>
-      <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.forms.js') }}"></script>
-      <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.reveal.js') }}"></script>
-      <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.orbit.js') }}"></script>
-      <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.navigation.js') }}"></script>
-      <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.buttons.js') }}"></script>
-      <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.tabs.js') }}"></script>
-      <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.tooltips.js') }}"></script>
-      <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.accordion.js') }}"></script>
-      <script src="{{ url_for('foundation.static', filename='js/jquery.placeholder.js') }}"></script>
-      <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.alerts.js') }}"></script>
-      <script src="{{ url_for('foundation.static', filename='js/jquery.foundation.topbar.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.abide.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.accordion.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.alert.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.clearing.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.dropdown.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.equalizer.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.interchange.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.joyride.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.magellan.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.offcanvas.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.orbit.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.reveal.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.tab.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.tooltip.js') }}"></script>
+      <script src="{{ url_for('foundation.static', filename='js/foundation/foundation.topbar.js') }}"></script>
     {% endif %}
 
     <script src="{{ url_for('foundation.static', filename='js/app.js') }}"></script>
