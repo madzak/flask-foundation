@@ -25,6 +25,10 @@
       <link rel="stylesheet" href="{{ url_for('foundation.static', filename='css/foundation.css') }}">
     {% endif %}
 
+    {% if config['FOUNDATION_USE_ICONS'] %}
+      <link rel="stylesheet" href="{{ url_for('foundation.static', filename='css/foundation-icons.css') }}">
+    {% endif %}
+
     <link rel="stylesheet" href="{{ url_for('foundation.static', filename='css/app.css') }}">
     {% endblock %}
     
